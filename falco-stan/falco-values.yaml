@@ -1,0 +1,28 @@
+ebpf:
+  # Enable eBPF support for Falco
+  enabled: true
+
+falco:
+  # Whether to output events in json or text
+  jsonOutput: true
+
+  # When using json output, whether or not to include the "output" property
+  # itself (e.g. "File below a known binary directory opened for writing
+  # (user=root ....") in the json output.
+  jsonIncludeOutputProperty: true
+
+
+
+
+integrations:
+  # If Nats Output integration is enabled, Falco will be configured to use this
+  # integration as file_output and sets the following values:
+  # * json_output: true
+  # * json_include_output_property: true
+  # * file_output:
+  #     enabled: true
+  #     keep_alive: true
+  #     filename: /tmp/shared-pipe/nats
+  natsOutput:
+    enabled: true
+    natsUrl: "nats://nats.default:4222"
